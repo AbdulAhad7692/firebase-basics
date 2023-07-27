@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
 
 
 const firebaseConfig = {
@@ -16,19 +16,40 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 
+function toggleForm() {
+    const signUpForm = document.querySelector('.Sign-div');
+    const loginForm = document.querySelector('.login-div');
+    const formToggleText = document.getElementById('formToggleText');
 
+    if (signUpForm.style.display === 'none') {
+        signUpForm.style.display = 'block';
+        loginForm.style.display = 'none';
+        formToggleText.innerText = 'Login';
+    } else {
+        signUpForm.style.display = 'none';
+        loginForm.style.display = 'block';
+        formToggleText.innerText = 'SignUp';
+    }
+}
 
+window.toggleForm = toggleForm
+window.signUp = signUp
+window.login = login
+
+var email;
+var password;
 
 function signUp() {
-    var email = document.getElementById("email").value
-    var password = document.getElementById("password").value
+
+    password = document.getElementById("password").value
+    email = document.getElementById("email").value
 
     createUserWithEmailAndPassword(auth, email, password)
 
 
 
-    console.log("username---->", email)
-    console.log("password---->", password)
+    console.log("username signUp---->", email)
+    console.log("password signUp---->", password)
         .then((res) => {
 
             const user = res.user;
@@ -41,17 +62,15 @@ function signUp() {
             const errorMessage = error.message;
 
         });
-
 }
-window.signUp = signUp
-window.login = login
+
 
 async function login() {
     var userEmail = document.getElementById("userEmail").value
     var userPassword = document.getElementById("userPassword").value
 
-    console.log(userEmail, ' && ', userPassword)
-    console.log(email.value, ' && ', password.value)
+    console.log('login', userEmail, ' && ', userPassword)
+    console.log('login form signup', email, ' && ', password)
 
 
     await signInWithEmailAndPassword(auth, userEmail, userPassword)
@@ -60,63 +79,31 @@ async function login() {
             const user = userCredential.user;
             console.log(user);
 
+
+            if (user.email == userEmail) {
+                console.log('login succesful')
+            } else {
+                console.log('error')
+            }
+
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log('1---->', errorCode);
             console.log('2---->', errorMessage);
+
         });
+
 
 }
 
-// if ("abdulahad@gmail.com" == userEmail) {
-    //     console.log('login succesful')
-// } else {
-//     console.log('error')
-// }
-
-
-
- // signInWithEmailAndPassword(auth, userEmail, password)
-    //     .then((userCredential) => {
-
-    //         const user = userCredential.user;
-    //         console.log(user);
-
-    //     })
-    //     .catch((error) => {
-    //         const errorCode = error.code;
-    //         const errorMessage = error.message;
-    //         console.log('1---->', errorCode);
-    //         console.log('2---->', errorMessage);
-    //     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //SIN IN
-
-// signInWithEmailAndPassword(auth, "abdulahad@gmail.com", password)
-//     .then((userCredential) => {
-
-//         const user = userCredential.user;
-//         console.log(user);
-
-//     })
-//     .catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         console.log('1---->', errorCode);
-//         console.log('2---->', errorMessage);
-//     });
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log('user found');  
+        const uid = user.uid;
+      // ...
+    } else {
+      console.log('user signed out may be');
+    }
+  });

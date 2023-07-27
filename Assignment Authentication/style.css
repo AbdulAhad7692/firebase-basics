@@ -1,0 +1,128 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  
+  /* Container for forms */
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Sign up form */
+  .Sign-div {
+    background: linear-gradient(to right, #83a4d4, #b6fbff);
+  }
+  
+  .Sign-div h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .Sign-div label,
+  .Sign-div input {
+    display: block;
+    width: 94%;
+    margin-bottom: 10px;
+  }
+  
+  .Sign-div input[type="text"],
+  .Sign-div input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  .Sign-div button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+  }
+  
+  .Sign-div button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Login form */
+  .login-div {
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    display: none;
+  }
+  
+  .login-div.active {
+    display: block;
+  }
+  
+  .login-div h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .login-div label,
+  .login-div input {
+    display: block;
+    width: 94%;
+    margin-bottom: 10px;
+  }
+  
+  .login-div input[type="text"],
+  .login-div input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  .login-div button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+  }
+  
+  .login-div button:hover {
+    background-color: #1e7e34;
+  }
+  
+  /* Toggle form */
+  .toggle-form {
+    height: 40px;
+    width: 150px;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #000000;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 18px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-left: 45%;
+    transition: all .3s ease;
+  }
+  .toggle-form:hover{
+    background-color: rgb(228, 228, 228);
+    color: black;
+    border: 3px solid black;
+  }
+  
+  

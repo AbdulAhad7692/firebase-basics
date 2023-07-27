@@ -10,8 +10,8 @@
 
 <body>
 
-    <div class="Sign-div">
-
+    <div class="form-container Sign-div">
+        <h2>Sign Up</h2>
         <label for="">Email : </label>
         <input type="text" id="email">
         <br>
@@ -23,8 +23,8 @@
         </button>
     </div>
 
-    <div class="login-div">
-
+    <div class="form-container login-div">
+        <h2>Login</h2>
         <label for="">Email : </label>
         <input type="text" id="userEmail">
         <br>
@@ -32,10 +32,14 @@
         <input type="password" id="userPassword">
         <br>
         <button onclick="login()" class="btn">
-            login
+            Login
         </button>
     </div>
-       
+
+    <div class="toggle-form" onclick="toggleForm()">
+        Switch to <span id="formToggleText">Sign Up</span>
+    </div>
+
     <script src="app.js" type="module"></script>
 </body>
 
