@@ -10,21 +10,32 @@
 
 <body>
 
-        <form>
-            <label for="">Username : </label>
-            <input type="text"  id="userName">
-            <br>
-            <label for="">Password : </label>
-            <input type="password"  id="password">
-            <br>
-            <button onclick="login()" class="btn">
-                login
-            </button>
-        </form>
-    
+    <div class="Sign-div">
 
+        <label for="">Email : </label>
+        <input type="text" id="email">
+        <br>
+        <label for="">Password : </label>
+        <input type="password" id="password">
+        <br>
+        <button onclick="signUp()" class="btn">
+            Sign up
+        </button>
+    </div>
 
+    <div class="login-div">
 
+        <label for="">Email : </label>
+        <input type="text" id="userEmail">
+        <br>
+        <label for="">Password : </label>
+        <input type="password" id="userPassword">
+        <br>
+        <button onclick="login()" class="btn">
+            login
+        </button>
+    </div>
+       
     <script src="app.js" type="module"></script>
 </body>
 
